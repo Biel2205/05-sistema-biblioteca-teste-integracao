@@ -1,38 +1,52 @@
-const livros = []
+const livros = [];
 
-function criarLivro(nome,autor,ano,anoPublicacao,categoria){
-    const novoLivro ={
-        id: Date.now(),
-        nome: nome,
-        autor:autor,
-        ano_publicacao:anoPublicacao,
-        categoria:categoria || 'GERAL'
-    }
-    livros.push(novoLivro)
-    return 
+/**
+ * ID: NÚMERO (INT)
+ * NOME: TEXTO (STRING)
+ * AUTOR: TEXTO (STRING)
+ * ANO_PUBLICACAO: NÚMERO (INT)
+ * CATEGORIA: TEXTO (STRING)
+ */
+
+/**
+ * INSERT
+ * SELECT
+ * SELECT com WHERE
+ */
+
+function criarLivro(nome, autor, anoPublicacao, categoria) {
+  const novoLivro = {
+    id: Date.now(),
+    nome: nome,
+    autor: autor,
+    ano_publicacao: anoPublicacao,
+    categoria: categoria || "GERAL",
+  };
+
+  livros.push(novoLivro);
+
+  return novoLivro;
 }
 
 function listarTodosLivros() {
-    return livros
+  return livros;
 }
 
-function buscarLivroPorNome(autor) {
-    const filtrarLivro = livros.find((livro) => livro.nome === nome)
+function buscarLivroPorNome(nome) {
+  const filtrarLivro = livros.find((livro) => livro.nome === nome);
 
-    return filtrarLivro
+  return filtrarLivro;
 }
-
 
 function buscarLivroPorCategoria(categoria) {
-    const filtrarLivro = livros.find((livro) => livro.nome === nome)
+  const filtrarLivro = livros.find((livro) => livro.categoria === categoria);
 
-    return filtrarLivro
+  return filtrarLivro;
 }
 
 module.exports = {
-    criarLivro,
-    listarTodosLivros,
-    buscarLivroPorCategoria,
-    buscarLivroPorNome,
-
-}
+  criarLivro,
+  listarTodosLivros,
+  buscarLivroPorNome,
+  buscarLivroPorCategoria,
+}; 
