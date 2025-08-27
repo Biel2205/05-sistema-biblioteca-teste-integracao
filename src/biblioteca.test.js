@@ -54,3 +54,8 @@ test('Verificar se o livro está sendo buscado por nome', () => {
     expect(resultado).toHaveProperty('ano_publicacao', 2023);
     expect(resultado).toHaveProperty('categoria', 'FICÇÃO');
 });
+
+test('Verificar se o livro não encontrado por nome retorna null', () => {
+    const resultado = bibliotecaService.buscarLivroPorNome('Livro Inexistente');
+    expect(resultado).toBeNull();
+});
